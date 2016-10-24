@@ -15,11 +15,11 @@ class searchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
 
     var searchResults = [SearchResult]()
     var hasSearched = false
-    var i: Int?
     
     
-    private struct Storyboard {
-        static let searchResultCellReuseIdentifier  = "SearchResultCellIdentifier"
+    private struct TableViewCellIdentifiers {
+        static let searchResultCell = "SearchResultCell"
+        static let nothingFoundCell = "NothingFoundCell"
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -42,22 +42,17 @@ class searchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        var cell: UITableViewCell! = tableView.dequeueReusableCell(withIdentifier: Storyboard.searchResultCellReuseIdentifier)
-        
-        if cell == nil { // if there is no cell reusable...
-            cell = UITableViewCell(style: .subtitle, reuseIdentifier: Storyboard.searchResultCellReuseIdentifier)
-        }
-        
         if searchResults.count == 0 {
-            cell.textLabel!.text = "(Nothing Found)"
-            cell.detailTextLabel!.text = ""
+            return tableView.dequeueReusableCell(withIdentifier: TableViewCellIdentifiers.nothingFoundCell, for: indexPath)
         } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCellIdentifiers.searchResultCell, for: indexPath) as! SearchResultCell
+            
             let searchResult = searchResults[indexPath.row]
-            cell.textLabel!.text = searchResult.name
-            cell.detailTextLabel!.text = searchResult.artistName
+            cell.nameLabel.text = searchResult.name
+            cell.artistNameLabel.text = searchResult.artistName
+            return cell
         }
         
-        return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -83,12 +78,16 @@ class searchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
         } else {
             return indexPath
         }
-    }// if count == 0, cell shows (not found), and it cannot be selected.
+    }// if count == 0, cell shows (not found), and it cannot be selected. However, if press this cell for a while, it will still be selected. Set selection to none in the Attributes inspector.
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.contentInset = UIEdgeInsets(top: 64, left: 0, bottom: 0, right: 0) // 20-points for the status bar and 44 points for the search bar.
-
+        tableView.rowHeight = 80
+        tableView.contentInset = UIEdgeInsets(top: 64, left: 0, bottom: 0, right: 0) // 20-points for the status bar and 44-points for the search bar, table view cell is 64-points below to top.
+        var cellNib = UINib(nibName: TableViewCellIdentifiers.searchResultCell, bundle: nil)
+        tableView.register(cellNib, forCellReuseIdentifier: TableViewCellIdentifiers.searchResultCell)
+        cellNib = UINib(nibName: TableViewCellIdentifiers.nothingFoundCell, bundle: nil)
+        tableView.register(cellNib, forCellReuseIdentifier: TableViewCellIdentifiers.nothingFoundCell)
     }
 
     override func didReceiveMemoryWarning() {
