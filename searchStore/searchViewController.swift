@@ -82,6 +82,7 @@ class searchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        searchBar.becomeFirstResponder()
         tableView.rowHeight = 80
         tableView.contentInset = UIEdgeInsets(top: 64, left: 0, bottom: 0, right: 0) // 20-points for the status bar and 44-points for the search bar, table view cell is 64-points below to top.
         var cellNib = UINib(nibName: TableViewCellIdentifiers.searchResultCell, bundle: nil)
