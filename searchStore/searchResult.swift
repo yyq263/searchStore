@@ -11,5 +11,19 @@ import Foundation
 class SearchResult {
     var name = ""
     var artistName = ""
+    var artworkSmallURL = "" //60×60 pixel image
+    var artworkLargeURL = "" //100×100 pixel image
+    var storeURL = ""
+    var kind = ""
+    var currency = ""
+    var price = 0.0
+    var genre = ""
+    
+    
 
 }
+
+func < (lhs: SearchResult, rhs: SearchResult) -> Bool {
+    return lhs.name.localizedStandardCompare(rhs.name) == .orderedAscending
+}
+    

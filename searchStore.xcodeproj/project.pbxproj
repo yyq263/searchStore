@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2057F7AA1DC4C27F00AD30AA /* LoadingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2057F7A91DC4C27F00AD30AA /* LoadingCell.xib */; };
 		208224DB1DB7B6D100A38289 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208224DA1DB7B6D100A38289 /* AppDelegate.swift */; };
 		208224DD1DB7B6D100A38289 /* searchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208224DC1DB7B6D100A38289 /* searchViewController.swift */; };
 		208224E01DB7B6D100A38289 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 208224DE1DB7B6D100A38289 /* Main.storyboard */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2057F7A91DC4C27F00AD30AA /* LoadingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingCell.xib; sourceTree = "<group>"; };
 		208224D71DB7B6D100A38289 /* searchStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = searchStore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		208224DA1DB7B6D100A38289 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		208224DC1DB7B6D100A38289 /* searchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = searchViewController.swift; sourceTree = "<group>"; };
@@ -64,6 +66,7 @@
 			children = (
 				208224DA1DB7B6D100A38289 /* AppDelegate.swift */,
 				208224DC1DB7B6D100A38289 /* searchViewController.swift */,
+				2057F7A91DC4C27F00AD30AA /* LoadingCell.xib */,
 				209E63551DBE502C005F92AB /* SearchResultCell.swift */,
 				208224DE1DB7B6D100A38289 /* Main.storyboard */,
 				209E63511DB8FFDD005F92AB /* searchResult.swift */,
@@ -137,6 +140,7 @@
 			files = (
 				209E63581DBE572D005F92AB /* NothingFoundCell.xib in Resources */,
 				208224E51DB7B6D100A38289 /* LaunchScreen.storyboard in Resources */,
+				2057F7AA1DC4C27F00AD30AA /* LoadingCell.xib in Resources */,
 				209E63541DBCFA4C005F92AB /* SearchResultCell.xib in Resources */,
 				208224E21DB7B6D100A38289 /* Assets.xcassets in Resources */,
 				208224E01DB7B6D100A38289 /* Main.storyboard in Resources */,
