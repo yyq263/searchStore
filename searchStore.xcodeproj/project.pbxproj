@@ -12,7 +12,6 @@
 		208224DD1DB7B6D100A38289 /* searchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208224DC1DB7B6D100A38289 /* searchViewController.swift */; };
 		208224E01DB7B6D100A38289 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 208224DE1DB7B6D100A38289 /* Main.storyboard */; };
 		208224E21DB7B6D100A38289 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 208224E11DB7B6D100A38289 /* Assets.xcassets */; };
-		208224E51DB7B6D100A38289 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 208224E31DB7B6D100A38289 /* LaunchScreen.storyboard */; };
 		209E63521DB8FFDD005F92AB /* searchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209E63511DB8FFDD005F92AB /* searchResult.swift */; };
 		209E63541DBCFA4C005F92AB /* SearchResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 209E63531DBCFA4C005F92AB /* SearchResultCell.xib */; };
 		209E63561DBE502C005F92AB /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209E63551DBE502C005F92AB /* SearchResultCell.swift */; };
@@ -26,7 +25,6 @@
 		208224DC1DB7B6D100A38289 /* searchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = searchViewController.swift; sourceTree = "<group>"; };
 		208224DF1DB7B6D100A38289 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		208224E11DB7B6D100A38289 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		208224E41DB7B6D100A38289 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		208224E61DB7B6D100A38289 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		209E63511DB8FFDD005F92AB /* searchResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = searchResult.swift; sourceTree = "<group>"; };
 		209E63531DBCFA4C005F92AB /* SearchResultCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchResultCell.xib; sourceTree = "<group>"; };
@@ -73,7 +71,6 @@
 				208224E11DB7B6D100A38289 /* Assets.xcassets */,
 				209E63531DBCFA4C005F92AB /* SearchResultCell.xib */,
 				209E63571DBE572D005F92AB /* NothingFoundCell.xib */,
-				208224E31DB7B6D100A38289 /* LaunchScreen.storyboard */,
 				208224E61DB7B6D100A38289 /* Info.plist */,
 			);
 			path = searchStore;
@@ -111,6 +108,7 @@
 				TargetAttributes = {
 					208224D61DB7B6D100A38289 = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = Z7T2H84A78;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -139,7 +137,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				209E63581DBE572D005F92AB /* NothingFoundCell.xib in Resources */,
-				208224E51DB7B6D100A38289 /* LaunchScreen.storyboard in Resources */,
 				2057F7AA1DC4C27F00AD30AA /* LoadingCell.xib in Resources */,
 				209E63541DBCFA4C005F92AB /* SearchResultCell.xib in Resources */,
 				208224E21DB7B6D100A38289 /* Assets.xcassets in Resources */,
@@ -170,14 +167,6 @@
 				208224DF1DB7B6D100A38289 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		208224E31DB7B6D100A38289 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				208224E41DB7B6D100A38289 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -278,6 +267,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = Z7T2H84A78;
 				INFOPLIST_FILE = searchStore/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.stanford.cs183p.yao.searchStore;
@@ -290,6 +280,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = Z7T2H84A78;
 				INFOPLIST_FILE = searchStore/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.stanford.cs183p.yao.searchStore;

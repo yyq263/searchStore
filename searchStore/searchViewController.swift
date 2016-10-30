@@ -13,9 +13,14 @@ class searchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
 
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
+    
+  
+    
     var searchResults = [SearchResult]()
     var hasSearched = false
     var isLoading = false
+    var dataTask: URLSessionDataTask?
     
     func parse(json data: Data) -> [String: Any]? {
         do {
@@ -137,10 +142,18 @@ class searchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
     
     
     
-    func iTunesURL(searchText: String) -> URL {
+    func iTunesURL(searchText: String, category: Int) -> URL {
+        let entityName: String
+        switch category {
+        case 1: entityName = "musicTrack"
+        case 2: entityName = "software"
+        case 3: entityName = "ebook"
+        default: entityName = ""
+        }
+        
         let escapedSearchText = searchText.addingPercentEncoding(
             withAllowedCharacters: CharacterSet.urlQueryAllowed)!
-        let urlString = String(format: "https://itunes.apple.com/search?term=%@", escapedSearchText)
+        let urlString = String(format: "https://itunes.apple.com/search?term=%@&limit=200&entity=%@", escapedSearchText, entityName)
         let url = URL(string: urlString)
         return url!
     }
@@ -163,8 +176,20 @@ class searchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        performSearch()
+    }
+    
+    
+    @IBAction func segmentedChanged(_ sender: UISegmentedControl) {
+        //print("Segment changed: \(sender.selectedSegmentIndex)")
+        performSearch()
+    }
+   
+    
+    func performSearch() {
         if !searchBar.text!.isEmpty {
             searchBar.resignFirstResponder()
+            dataTask?.cancel() // cancel the last dataTask before start a new one.
             isLoading = true
             tableView.reloadData() // load the loading cell
             
@@ -172,15 +197,15 @@ class searchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
             searchResults = [] // update searchResults every time
             
             // 1
-            let url = iTunesURL(searchText: searchBar.text!)
+            let url = iTunesURL(searchText: searchBar.text!, category: segmentedControl.selectedSegmentIndex)
             // 2
             let session = URLSession.shared
             // 3
-            let dataTask = session.dataTask(with: url) { // perform a HTTP GET request
+            dataTask = session.dataTask(with: url) { // perform a HTTP GET request
                 data, response, error in
                 // 4
-                if let error = error {
-                    print("Failure! \(error)")
+                if let error = error as? NSError, error.code == -999 {
+                    return // search was cancelled, when dataTask was cancelled it returns -999
                 } else if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 {
                     if let data = data, let jsonDictionary = self.parse(json: data) {
                         self.searchResults = self.parse(dictionary: jsonDictionary)
@@ -191,12 +216,18 @@ class searchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
                         }
                         return
                     }
+                    DispatchQueue.main.async {
+                        self.hasSearched = false
+                        self.isLoading = false
+                        self.tableView.reloadData()
+                        self.showNetworkError()
+                    }
                 } else {
                     print("Failure! \(response)")
                 }
             }
             // 5
-            dataTask.resume()
+            dataTask?.resume()
         }
     }
     
@@ -291,7 +322,7 @@ class searchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
         super.viewDidLoad()
         searchBar.becomeFirstResponder()
         tableView.rowHeight = 80
-        tableView.contentInset = UIEdgeInsets(top: 64, left: 0, bottom: 0, right: 0) // 20-points for the status bar and 44-points for the search bar, table view cell is 64-points below to top.
+        tableView.contentInset = UIEdgeInsets(top: 108, left: 0, bottom: 0, right: 0) // 20-points for the status bar and 44-points for the search bar, table view cell is 64-points below to top.
         var cellNib = UINib(nibName: TableViewCellIdentifiers.searchResultCell, bundle: nil)
         tableView.register(cellNib, forCellReuseIdentifier: TableViewCellIdentifiers.searchResultCell)
         cellNib = UINib(nibName: TableViewCellIdentifiers.nothingFoundCell, bundle: nil)
