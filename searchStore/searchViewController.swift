@@ -284,11 +284,20 @@ class searchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ShowDetail" {
+            let detailViewController = segue.destination as! DetailedViewController
+            let indexPath = sender as! IndexPath
+            let searchResult = searchResults[indexPath.row]
+            detailViewController.searchResult = searchResult
+        }
+    }
+    
     func tableView(_ tableView: UITableView,
                    didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         performSegue(withIdentifier: "ShowDetail", sender:  indexPath)
-    }// tap on a row it will become selected and stays selected, cancel it with animation
+    }// tap on a row and it will become selected and stays selected, cancel it with animation
     
     func tableView(_ tableView: UITableView,
                    willSelectRowAt indexPath: IndexPath) -> IndexPath? {
