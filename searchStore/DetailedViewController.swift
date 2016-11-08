@@ -18,6 +18,9 @@ class DetailedViewController: UIViewController, UIViewControllerTransitioningDel
     @IBOutlet weak var genreLabel: UILabel!
     @IBOutlet weak var priceButton: UIButton!
     var searchResult: SearchResult!
+    var downloadTask: URLSessionDownloadTask?
+    
+
     
     func updateUI() {
         nameLabel.text = searchResult.name
@@ -43,6 +46,10 @@ class DetailedViewController: UIViewController, UIViewControllerTransitioningDel
         }
         
         priceButton.setTitle(priceText, for: .normal)
+        
+        if let largeURL = URL(string: searchResult.artworkLargeURL) {
+            downloadTask = artworkImageView.loadImage(url: largeURL)
+        }
     }
     
     @IBAction func close() {
@@ -53,6 +60,11 @@ class DetailedViewController: UIViewController, UIViewControllerTransitioningDel
         super.init(coder: aDecoder)
         modalPresentationStyle = .custom
         transitioningDelegate = self
+    }
+    
+    deinit {
+        print("deinit \(self)")
+        downloadTask?.cancel()
     }
     
     override func viewDidLoad() {
@@ -86,6 +98,11 @@ class DetailedViewController: UIViewController, UIViewControllerTransitioningDel
         return (touch.view === self.view)  // '===' compare if the two pointers point to the same object.
     }
     
+    @IBAction func openInStore() {
+        if let url = URL(string: searchResult.storeURL) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        }
+    }
 
     /*
     // MARK: - Navigation
