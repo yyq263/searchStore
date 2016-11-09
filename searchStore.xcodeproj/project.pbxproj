@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		2057F7AA1DC4C27F00AD30AA /* LoadingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2057F7A91DC4C27F00AD30AA /* LoadingCell.xib */; };
+		205B41CC1DD354B7009441C7 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205B41CB1DD354B7009441C7 /* GradientView.swift */; };
+		205B41CE1DD35ADD009441C7 /* BounceAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205B41CD1DD35ADD009441C7 /* BounceAnimationController.swift */; };
+		205B41D01DD35F2E009441C7 /* SlideOutAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205B41CF1DD35F2E009441C7 /* SlideOutAnimationController.swift */; };
 		206FA8AD1DC638EE00F93093 /* UIImageView+DownloadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 206FA8AC1DC638EE00F93093 /* UIImageView+DownloadImage.swift */; };
 		206FA8AF1DC8CE9A00F93093 /* DetailedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 206FA8AE1DC8CE9A00F93093 /* DetailedViewController.swift */; };
 		206FA8B11DC8D5BE00F93093 /* DimmingPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 206FA8B01DC8D5BE00F93093 /* DimmingPresentationController.swift */; };
@@ -23,6 +26,9 @@
 
 /* Begin PBXFileReference section */
 		2057F7A91DC4C27F00AD30AA /* LoadingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingCell.xib; sourceTree = "<group>"; };
+		205B41CB1DD354B7009441C7 /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		205B41CD1DD35ADD009441C7 /* BounceAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BounceAnimationController.swift; sourceTree = "<group>"; };
+		205B41CF1DD35F2E009441C7 /* SlideOutAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideOutAnimationController.swift; sourceTree = "<group>"; };
 		206FA8AC1DC638EE00F93093 /* UIImageView+DownloadImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+DownloadImage.swift"; sourceTree = "<group>"; };
 		206FA8AE1DC8CE9A00F93093 /* DetailedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailedViewController.swift; sourceTree = "<group>"; };
 		206FA8B01DC8D5BE00F93093 /* DimmingPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DimmingPresentationController.swift; sourceTree = "<group>"; };
@@ -75,7 +81,10 @@
 				209E63551DBE502C005F92AB /* SearchResultCell.swift */,
 				206FA8AE1DC8CE9A00F93093 /* DetailedViewController.swift */,
 				206FA8B01DC8D5BE00F93093 /* DimmingPresentationController.swift */,
+				205B41CF1DD35F2E009441C7 /* SlideOutAnimationController.swift */,
+				205B41CD1DD35ADD009441C7 /* BounceAnimationController.swift */,
 				208224DE1DB7B6D100A38289 /* Main.storyboard */,
+				205B41CB1DD354B7009441C7 /* GradientView.swift */,
 				209E63511DB8FFDD005F92AB /* searchResult.swift */,
 				208224E11DB7B6D100A38289 /* Assets.xcassets */,
 				209E63531DBCFA4C005F92AB /* SearchResultCell.xib */,
@@ -164,9 +173,12 @@
 				206FA8B11DC8D5BE00F93093 /* DimmingPresentationController.swift in Sources */,
 				209E63521DB8FFDD005F92AB /* searchResult.swift in Sources */,
 				206FA8AF1DC8CE9A00F93093 /* DetailedViewController.swift in Sources */,
+				205B41CE1DD35ADD009441C7 /* BounceAnimationController.swift in Sources */,
 				209E63561DBE502C005F92AB /* SearchResultCell.swift in Sources */,
 				208224DB1DB7B6D100A38289 /* AppDelegate.swift in Sources */,
+				205B41CC1DD354B7009441C7 /* GradientView.swift in Sources */,
 				206FA8AD1DC638EE00F93093 /* UIImageView+DownloadImage.swift in Sources */,
+				205B41D01DD35F2E009441C7 /* SlideOutAnimationController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

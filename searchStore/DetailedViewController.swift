@@ -20,7 +20,14 @@ class DetailedViewController: UIViewController, UIViewControllerTransitioningDel
     var searchResult: SearchResult!
     var downloadTask: URLSessionDownloadTask?
     
-
+    func animationController(forPresented presented: UIViewController,
+                             presenting: UIViewController, source: UIViewController) ->UIViewControllerAnimatedTransitioning? {
+            return BounceAnimationController()
+    }
+    
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return SlideOutAnimationController()
+    }
     
     func updateUI() {
         nameLabel.text = searchResult.name
@@ -79,6 +86,7 @@ class DetailedViewController: UIViewController, UIViewControllerTransitioningDel
         if searchResult != nil {
             updateUI()
         }
+        view.backgroundColor = UIColor.clear
     }
 
     override func didReceiveMemoryWarning() {
