@@ -9,7 +9,13 @@
 import UIKit
 
 class DetailedViewController: UIViewController, UIViewControllerTransitioningDelegate, UIGestureRecognizerDelegate {
+    
+    enum AnimationStyle {
+        case slide
+        case fade
+    }
 
+    var dismissAnimationStyle = AnimationStyle.fade
     @IBOutlet weak var popupView: UIView!
     @IBOutlet weak var artworkImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
@@ -26,7 +32,12 @@ class DetailedViewController: UIViewController, UIViewControllerTransitioningDel
     }
     
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return SlideOutAnimationController()
+        switch dismissAnimationStyle {
+        case .slide:
+            return SlideOutAnimationController()
+        case .fade:
+            return FadeOutAnimationController()
+        }
     }
     
     func updateUI() {
@@ -60,6 +71,7 @@ class DetailedViewController: UIViewController, UIViewControllerTransitioningDel
     }
     
     @IBAction func close() {
+        dismissAnimationStyle = .slide
         dismiss(animated: true, completion: nil)
     }
     

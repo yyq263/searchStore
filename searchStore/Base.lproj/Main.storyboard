@@ -15,7 +15,7 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="interactive" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="CJ9-53-GXZ">
@@ -36,7 +36,7 @@
                                     <navigationItem id="4R9-Dp-cqS">
                                         <nil key="title"/>
                                         <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="zwb-po-7jI">
-                                            <rect key="frame" x="10" y="7" width="300" height="30"/>
+                                            <rect key="frame" x="134" y="7" width="300" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <segments>
                                                 <segment title="All"/>
@@ -86,7 +86,7 @@
                         <viewControllerLayoutGuide type="bottom" id="Wth-Xy-inx"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="7fH-OK-Ia0">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="154-xZ-r9m" userLabel="Pop-up View">
@@ -193,6 +193,36 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tj4-4e-6AZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="341.25" y="-150"/>
+        </scene>
+        <!--Landscape View Controller-->
+        <scene sceneID="5b5-Ql-re1">
+            <objects>
+                <viewController storyboardIdentifier="LandscapeViewController" id="bMV-ex-2IK" customClass="LandscapeViewController" customModule="searchStore" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="NJz-oF-7gh"/>
+                        <viewControllerLayoutGuide type="bottom" id="Dca-Vb-WXZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="qA5-nh-ele">
+                        <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="fffafdafadsfasdf" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oUG-l6-v2U">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.58615022897720337" green="0.063448317348957062" blue="0.95968610048294067" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="oUG-l6-v2U" firstAttribute="centerY" secondItem="qA5-nh-ele" secondAttribute="centerY" id="6mb-pi-ehB"/>
+                            <constraint firstItem="oUG-l6-v2U" firstAttribute="centerX" secondItem="qA5-nh-ele" secondAttribute="centerX" id="ctD-qY-rCc"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="L8Z-Ye-xgM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1113" y="-158"/>
         </scene>
     </scenes>
     <resources>

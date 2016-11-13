@@ -14,13 +14,55 @@ class searchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
     @IBOutlet weak var searchBar: UISearchBar!
 
     @IBOutlet weak var segmentedControl: UISegmentedControl!
-    
+    var landscapeViewController: LandscapeViewController?
   
     
     var searchResults = [SearchResult]()
     var hasSearched = false
     var isLoading = false
     var dataTask: URLSessionDataTask?
+    
+    
+    func showLandscape(with coordinator: UIViewControllerTransitionCoordinator) {
+        // 1
+        guard landscapeViewController == nil else { return }
+        // 2
+        landscapeViewController = storyboard!.instantiateViewController(
+            withIdentifier: "LandscapeViewController")
+            as? LandscapeViewController
+        if let controller = landscapeViewController {
+            // 3
+            controller.view.frame = view.bounds
+            controller.view.alpha = 0
+            // 4
+            view.addSubview(controller.view) //add the landscape controller’s view as a subview
+            addChildViewController(controller)//Then tell the SearchViewController that the LandscapeViewController is now managing that part of the screen
+            coordinator.animate(alongsideTransition: { _ in
+                controller.view.alpha = 1
+                self.searchBar.resignFirstResponder()
+                if self.presentedViewController != nil {
+                    self.dismiss(animated: true, completion: nil)
+                }
+                }, completion: { _ in
+                    controller.didMove(toParentViewController: self) //Tell the new view controller that it now has a parent view controller
+            })
+        }
+        
+    }
+    
+    func hideLandscape(with coordinator:
+        UIViewControllerTransitionCoordinator) {
+        if let controller = landscapeViewController {
+            controller.willMove(toParentViewController: nil) //view controller that it is leaving the view controller hierarchy (it no longer has a parent)
+            coordinator.animate(alongsideTransition: { _ in
+                controller.view.alpha = 0
+                }, completion: { _ in
+                    controller.view.removeFromSuperview()
+                    controller.removeFromParentViewController()
+                    self.landscapeViewController = nil
+            })
+        }
+    }
     
     func parse(json data: Data) -> [String: Any]? {
         do {
@@ -326,6 +368,18 @@ class searchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    override func willTransition(to newCollection: UITraitCollection,
+                                 with coordinator:UIViewControllerTransitionCoordinator) {
+        super.willTransition(to: newCollection, with: coordinator)
+        switch newCollection.verticalSizeClass {
+        case .compact:
+            showLandscape(with: coordinator)
+        case .regular, .unspecified:
+            hideLandscape(with: coordinator)
+        }
+    }
+    
 
 
 }
