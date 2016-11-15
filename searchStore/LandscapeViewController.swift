@@ -160,9 +160,6 @@ class LandscapeViewController: UIViewController, UIScrollViewDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    deinit {
-        print("deinit \(self)")
-    }
 
     /*
     // MARK: - Navigation
