@@ -24,6 +24,8 @@ class LandscapeViewController: UIViewController, UIScrollViewDelegate {
     }
     private var downloadTasks = [URLSessionDownloadTask]()
 
+    var search: Search!
+    
     override func viewWillLayoutSubviews() { // layout programmatically
         super.viewWillLayoutSubviews()
         scrollView.frame = view.bounds
@@ -34,7 +36,16 @@ class LandscapeViewController: UIViewController, UIScrollViewDelegate {
             height: pageControl.frame.size.height)
         if firstTime {
             firstTime = false
-            tileButtons(searchResults)
+            switch search.state {
+            case .notSearchedYet:
+                break
+            case .loading:
+                break
+            case .noResults:
+                break
+            case .results(let list):
+                tileButtons(list)
+            }
         }
     }
     

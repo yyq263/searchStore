@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		202BCC1C1DDB56330015F036 /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202BCC1B1DDB56330015F036 /* Search.swift */; };
 		2057F7AA1DC4C27F00AD30AA /* LoadingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2057F7A91DC4C27F00AD30AA /* LoadingCell.xib */; };
 		205B41CC1DD354B7009441C7 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205B41CB1DD354B7009441C7 /* GradientView.swift */; };
 		205B41CE1DD35ADD009441C7 /* BounceAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205B41CD1DD35ADD009441C7 /* BounceAnimationController.swift */; };
@@ -27,6 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		202BCC1B1DDB56330015F036 /* Search.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
 		2057F7A91DC4C27F00AD30AA /* LoadingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingCell.xib; sourceTree = "<group>"; };
 		205B41CB1DD354B7009441C7 /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		205B41CD1DD35ADD009441C7 /* BounceAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BounceAnimationController.swift; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 		208224D91DB7B6D100A38289 /* searchStore */ = {
 			isa = PBXGroup;
 			children = (
+				202BCC1B1DDB56330015F036 /* Search.swift */,
 				208224DA1DB7B6D100A38289 /* AppDelegate.swift */,
 				208224DC1DB7B6D100A38289 /* searchViewController.swift */,
 				206FA8AC1DC638EE00F93093 /* UIImageView+DownloadImage.swift */,
@@ -175,6 +178,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				202BCC1C1DDB56330015F036 /* Search.swift in Sources */,
 				208224DD1DB7B6D100A38289 /* searchViewController.swift in Sources */,
 				206FA8B11DC8D5BE00F93093 /* DimmingPresentationController.swift in Sources */,
 				207AA2AA1DD8A4840005062A /* FadeOutAnimationController.swift in Sources */,
