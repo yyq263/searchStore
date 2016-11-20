@@ -1,0 +1,8 @@
+/* 
+  InfoPlist.strings
+  searchStore
+
+  Created by Yiqin Yao on 20/11/2016.
+  Copyright © 2016 Yiqin Yao. All rights reserved.
+*/
+CFBundleDisplayName = "搜宝";

@@ -53,6 +53,9 @@ class searchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
             controller.willMove(toParentViewController: nil) //view controller that it is leaving the view controller hierarchy (it no longer has a parent)
             coordinator.animate(alongsideTransition: { _ in
                 controller.view.alpha = 0
+                if self.presentedViewController != nil {
+                    self.dismiss(animated: true, completion: nil)
+                }
                 }, completion: { _ in
                     controller.view.removeFromSuperview()
                     controller.removeFromParentViewController()
@@ -70,10 +73,9 @@ class searchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
     
     func showNetworkError() {
         let alert = UIAlertController(
-            title: "Whoops...",
-            message:
-            "There was an error reading from the iTunes Store. Please try again.",
-            preferredStyle: .alert)
+            title: NSLocalizedString("Whoops...", comment: "Error alert: title"),
+            message: NSLocalizedString("There was an error reading from the iTunes Store. Please try again.", comment: "Error alert: message"),
+                preferredStyle: .alert)
         let action = UIAlertAction(title: "OK", style: .default, handler: nil)
         alert.addAction(action)
         present(alert, animated: true, completion: nil)
@@ -99,6 +101,7 @@ class searchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
                 self.showNetworkError()
             }
                 self.tableView.reloadData()
+                self.landscapeViewController?.searchResultsReceived()                    
             }
             searchBar.resignFirstResponder()
         }

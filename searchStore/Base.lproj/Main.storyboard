@@ -36,7 +36,7 @@
                                     <navigationItem id="4R9-Dp-cqS">
                                         <nil key="title"/>
                                         <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="zwb-po-7jI">
-                                            <rect key="frame" x="38" y="7" width="300" height="30"/>
+                                            <rect key="frame" x="134" y="7" width="300" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <segments>
                                                 <segment title="All"/>
@@ -227,15 +227,19 @@
                     <connections>
                         <outlet property="pageControl" destination="E6t-Lu-Abq" id="ppb-0W-78a"/>
                         <outlet property="scrollView" destination="7hq-dM-SRJ" id="gkh-on-0QQ"/>
+                        <segue destination="1i4-74-y9J" kind="presentation" identifier="ShowDetail" id="aIf-UM-5mZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L8Z-Ye-xgM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1112.323943661972" y="-159.375"/>
+            <point key="canvasLocation" x="-616" y="578"/>
         </scene>
     </scenes>
     <resources>
         <image name="CloseButton" width="15" height="15"/>
         <image name="PriceButton" width="11" height="24"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="aIf-UM-5mZ"/>
+    </inferredMetricsTieBreakers>
 </document>
